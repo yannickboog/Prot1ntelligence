@@ -61,7 +61,7 @@ def check_email(email):
 
         timestamp = extract_timestamp(response.text)
         if timestamp is not None:
-            creation_date = datetime.datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+            creation_date = datetime.datetime.fromtimestamp(timestamp, tz=datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
             print("PGP Key Date and Creation Time:", creation_date)
         else:
             print("Problem parsing Key Creation Date.")
